@@ -4,6 +4,8 @@ stages:
   - deploy
   - cleanup
 
+before_script: 
+        - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $REGISTRY
 image: 
   name: gitlab.praktikum-services.ru:5050/std-024-07/momo-store-infrastructure/cpi:latest
 
