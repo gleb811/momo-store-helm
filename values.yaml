@@ -1,0 +1,39 @@
+momo-backend:
+  image:
+    repository: gitlab.praktikum-services.ru:5050/std-024-07/momo-store/momo-backend
+    pullPolicy: Always
+    tag: latest
+
+  dockerconfig: "ewoJImF1dGhzIjogewoJCSJnaXRsYWIucHJha3Rpa3VtLXNlcnZpY2VzLnJ1OjUwNTAiOiB7CgkJCSJhdXRoIjogImMzUmtMVEF5TkMwd056cDRObkF4TXpWblRBPT0iCgkJfQoJfQp9Cg=="
+  
+  fullnameOverride: momo-backend
+
+  autoscaling:
+    hpa:
+      enabled: true
+
+momo-frontend:
+  image:
+    repository: gitlab.praktikum-services.ru:5050/std-024-07/momo-store/momo-frontend
+    pullPolicy: Always
+    tag: latest
+  
+  dockerconfig: "ewoJImF1dGhzIjogewoJCSJnaXRsYWIucHJha3Rpa3VtLXNlcnZpY2VzLnJ1OjUwNTAiOiB7CgkJCSJhdXRoIjogImMzUmtMVEF5TkMwd056cDRObkF4TXpWblRBPT0iCgkJfQoJfQp9Cg=="
+
+  fullnameOverride: momo-frontend
+
+  autoscaling:
+    hpa:
+      enabled: true
+
+  ingress:
+    enabled: true
+    hosts:
+      - "momo.glebfedotov.ru"
+    paths:
+      - /
+    pathType: Prefix
+    
+  upstream:
+    host: momo-backend
+    port: "8081"
