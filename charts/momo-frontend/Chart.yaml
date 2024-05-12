@@ -1,0 +1,5 @@
+apiVersion: v2
+name: momo-frontend
+description: A Helm chart for Sausage Store frontend
+type: application
+version: 0.1.0
