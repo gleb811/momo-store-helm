@@ -7,7 +7,6 @@ stages:
 image: 
   name: gitlab.praktikum-services.ru:5050/std-024-07/momo-store-infrastructure/cpi:latest
 
-dockerconfig: "ewoJImF1dGhzIjogewoJCSJnaXRsYWIucHJha3Rpa3VtLXNlcnZpY2VzLnJ1OjUwNTAiOiB7CgkJCSJhdXRoIjogImMzUmtMVEF5TkMwd056cDRObkF4TXpWblRBPT0iCgkJfQoJfQp9Cg=="
 
 variables:
   CHART: momo-chart
