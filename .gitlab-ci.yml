@@ -1,6 +1,6 @@
 stages:
   - lint
- # - build
+  - build
   - deploy
   - cleanup
 
@@ -18,13 +18,13 @@ lint:
     - helm lint . --with-subcharts
   needs: []
 
-#build:
-#  stage: build
-#  script:
-#    - >
-#      helm repo add ${CHART}
-#      --username ${CI_REGISTRY_USER}
-#      --password ${CI_REGISTRY_PASSWORD}
-#      ${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/packages/helm/stable
-#    - helm package .
-#    - helm cm-push ${CHART}*.tgz ${CHART}
+build:
+  stage: build
+  script:
+    - >
+      helm repo add ${CHART}
+      --username ${CI_REGISTRY_USER}
+      --password ${CI_REGISTRY_PASSWORD}
+      ${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/packages/helm/stable
+    - helm package .
+    - helm cm-push ${CHART}*.tgz ${CHART}
