@@ -1,11 +1,9 @@
 stages:
   - lint
-  - build
+ # - build
   - deploy
   - cleanup
 
-before_script: 
-        - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $REGISTRY
 image: 
   name: gitlab.praktikum-services.ru:5050/std-024-07/momo-store-infrastructure/cpi:latest
 
@@ -20,13 +18,13 @@ lint:
     - helm lint . --with-subcharts
   needs: []
 
-build:
-  stage: build
-  script:
-    - >
-      helm repo add ${CHART}
-      --username ${CI_REGISTRY_USER}
-      --password ${CI_REGISTRY_PASSWORD}
-      ${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/packages/helm/stable
-    - helm package .
-    - helm cm-push ${CHART}*.tgz ${CHART}
+#build:
+#  stage: build
+#  script:
+#    - >
+#      helm repo add ${CHART}
+#      --username ${CI_REGISTRY_USER}
+#      --password ${CI_REGISTRY_PASSWORD}
+#      ${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/packages/helm/stable
+#    - helm package .
+#    - helm cm-push ${CHART}*.tgz ${CHART}
