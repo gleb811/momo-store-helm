@@ -37,7 +37,7 @@ data:
 #                stub_status;
 #                allow 127.0.0.1;
 #                deny all;
-            }
+#           }
 
             location ~ /(products|categories|orders|auth/whoami|metrics) {
                 proxy_pass http://{{ .Values.upstream.host }}:{{ .Values.upstream.port }};
