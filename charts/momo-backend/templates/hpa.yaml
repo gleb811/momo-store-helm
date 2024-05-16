@@ -12,21 +12,21 @@ spec:
     name: {{ include "backend.fullname" . }}
   minReplicas: {{ .Values.autoscaling.hpa.minReplicas }}
   maxReplicas: {{ .Values.autoscaling.hpa.maxReplicas }}
-  metrics:
-    {{- if .Values.autoscaling.hpa.targetCPUUtilizationPercentage }}
-    - type: Resource
-      resource:
-        name: cpu
-        target:
-          type: Value
-          value: {{ .Values.autoscaling.hpa.targetCPUUtilizationPercentage }}
-    {{- end }}
-    {{- if .Values.autoscaling.hpa.targetMemoryUtilizationPercentage }}
-    - type: Resource
-      resource:
-        name: memory
-        target: 
-          type: Value
-          value: {{ .Values.autoscaling.hpa.targetMemoryUtilizationPercentage }}
-    {{- end }}
+#  metrics:
+#    {{- if .Values.autoscaling.hpa.targetCPUUtilizationPercentage }}
+#    - type: Resource
+#      resource:
+#        name: cpu
+#        target:
+#          type: Value
+#          value: {{ .Values.autoscaling.hpa.targetCPUUtilizationPercentage }}
+#    {{- end }}
+#    {{- if .Values.autoscaling.hpa.targetMemoryUtilizationPercentage }}
+#    - type: Resource
+#      resource:
+#        name: memory
+#        target: 
+#          type: Value
+#          value: {{ .Values.autoscaling.hpa.targetMemoryUtilizationPercentage }}
+#    {{- end }}
 {{- end }}
