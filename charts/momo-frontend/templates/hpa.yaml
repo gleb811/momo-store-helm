@@ -12,17 +12,17 @@ spec:
     name: {{ include "frontend.fullname" . }}
   minReplicas: {{ .Values.autoscaling.hpa.minReplicas }}
   maxReplicas: {{ .Values.autoscaling.hpa.maxReplicas }}
-  metrics:
-    {{- if .Values.autoscaling.hpa.targetCPUUtilizationPercentage }}
-    - type: Resource
-      resource:
-        name: cpu
-        targetUtilization: {{ .Values.autoscaling.hpa.targetCPUUtilizationPercentage }}
-    {{- end }}
-    {{- if .Values.autoscaling.hpa.targetMemoryUtilizationPercentage }}
-    - type: Resource
-      resource:
-        name: memory
-        targetUtilization: {{ .Values.autoscaling.hpa.targetMemoryUtilizationPercentage }}
-    {{- end }}
+#  metrics:
+#    {{- if .Values.autoscaling.hpa.targetCPUUtilizationPercentage }}
+#    - type: Resource
+#      resource:
+#        name: cpu
+#        targetUtilization: {{ .Values.autoscaling.hpa.targetCPUUtilizationPercentage }}
+#    {{- end }}
+#    {{- if .Values.autoscaling.hpa.targetMemoryUtilizationPercentage }}
+#    - type: Resource
+#      resource:
+#        name: memory
+#        targetUtilization: {{ .Values.autoscaling.hpa.targetMemoryUtilizationPercentage }}
+#    {{- end }}
 {{- end }}
