@@ -39,7 +39,7 @@ ingress:
   annotations: {}
   className: "nginx"
   hosts:
-    - chart-example.local
+    - momo-store.glebfedotov.ru
   paths:
     - /
   pathType: ImplementationSpecific
