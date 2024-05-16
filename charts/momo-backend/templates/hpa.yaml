@@ -18,15 +18,15 @@ spec:
       resource:
         name: cpu
         target:
-          type: AverageValue
+          type: Value
           value: {{ .Values.autoscaling.hpa.targetCPUUtilizationPercentage }}
     {{- end }}
     {{- if .Values.autoscaling.hpa.targetMemoryUtilizationPercentage }}
     - type: Resource
       resource:
         name: memory
-        target:
-          type: AverageValue
+        target: 
+          type: Value
           value: {{ .Values.autoscaling.hpa.targetMemoryUtilizationPercentage }}
     {{- end }}
 {{- end }}
