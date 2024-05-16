@@ -39,7 +39,7 @@ data:
                 deny all;
             }
 
-            location ~ /(products|categories|orders|auth/whoami|metrics) {
+            location ~ /(products|categories|orders|auth/whoami) {
                 proxy_pass http://{{ .Values.upstream.host }}:{{ .Values.upstream.port }};
             }
         }
