@@ -25,7 +25,7 @@ data:
         access_log  /var/log/nginx/access.log  main;
 
         server {
-            listen 8080;
+            listen 80;
         
             location / {
                 root /usr/share/nginx/html;
@@ -33,13 +33,13 @@ data:
                 try_files $uri $uri/ /index.html;
             }
 
-            location /nginx_status {
-                stub_status;
-                allow 127.0.0.1;
-                deny all;
+#           location /nginx_status {
+#                stub_status;
+#                allow 127.0.0.1;
+#                deny all;
             }
 
-            location ~ /(products|categories|orders|auth/whoami) {
+            location ~ /(products|categories|orders|auth/whoami|metrics) {
                 proxy_pass http://{{ .Values.upstream.host }}:{{ .Values.upstream.port }};
             }
         }
