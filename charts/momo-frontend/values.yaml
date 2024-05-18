@@ -43,4 +43,6 @@ ingress:
   paths:
     - /
   pathType: ImplementationSpecific
-  tls: []
+  tls: 
+    - hosts:
+        - momo-store.glebfedotov.ru
