@@ -20,6 +20,7 @@ spec:
   tls:
     {{- range .Values.ingress.tls }}
     - hosts:
+        - momo-store.glebfedotov.ru
         {{- range .hosts }}
         - {{ . | quote }}
         {{- end }}
