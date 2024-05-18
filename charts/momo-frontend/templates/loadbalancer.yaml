@@ -2,16 +2,15 @@ apiVersion: v1
 kind: Service
 metadata:
   labels:
-    app.kubernetes.io/instance: momo-store
-    app.kubernetes.io/managed-by: Helm
-    app.kubernetes.io/name: momo-frontend
-    argocd.argoproj.io/instance: momo-store
+    app.kubernetes.io/instance: {{ .Release.Name }}
+    app.kubernetes.io/managed-by: {{ .Release.Service }}
+    app.kubernetes.io/name: {{ include "frontend.name" . }}
   name: momo-store
   namespace: default
 spec:
   selector:
-    app.kubernetes.io/instance: momo-store
-    app.kubernetes.io/name: momo-frontend
+    app.kubernetes.io/instance: {{ .Release.Name }}
+    app.kubernetes.io/name: {{ include "frontend.name" . }}
   ports:
     - port: 80
       targetPort: 8080
