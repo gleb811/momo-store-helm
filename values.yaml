@@ -29,7 +29,7 @@ momo-frontend:
   ingress:
     enabled: true
     hosts:
-      - "momo.glebfedotov.ru"
+      - "momo-store.glebfedotov.ru"
     paths:
       - /
     pathType: Prefix
