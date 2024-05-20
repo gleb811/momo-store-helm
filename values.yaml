@@ -33,6 +33,10 @@ momo-frontend:
     paths:
       - /
     pathType: Prefix
+    extraTls:
+      - hosts:
+          - momo-store.glebfedotov.ru
+        secretName: momo-store
     
   upstream:
     host: momo-backend
